@@ -1,0 +1,6 @@
+jupyter-dash==0.4.0
+isort
+black
+jupyterlab-lsp
+python-lsp-server[all]
+jupyterlab_latex

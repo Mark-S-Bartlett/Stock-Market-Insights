@@ -1,0 +1,13 @@
+geopandas
+matplotlib
+seaborn
+tqdm
+pandas
+sidecar=0.5.1
+jupyterlab_code_formatter
+git
+texlab
+chktex
+jupyterlab-git
+jupyterlab_latex
+jupyterlab-spellchecker

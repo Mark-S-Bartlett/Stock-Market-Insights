@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  jupyter:
+    image: nitrogenmanagement:latest
+ #   network_mode: host
+    build:
+#      network: host
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+    #Number of cpus and memory accessed limits
+        limits:
+          cpus: '4'
+          memory: 4G
+    #volumes Syntax: named_volume_name:/container/path
+    volumes:
+     #Change name after ../../ to main project folder name
+     - ../:/home/jovyan
+    container_name: nitrogen_management
+    environment:
+      #- Jupyter_TOKEN=jupyter_notebook_token
+      - JUPYTER_ENABLE_LAB=1
+      - CHOWN_HOME=1
+    command: start-notebook.sh 
+             --NotebookApp.notebook_dir=/home/jovyan/
+    restart: always
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 443:443
+      - 81:81
+    links:
+      - jupyter
+    restart: always

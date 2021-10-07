@@ -1,0 +1,68 @@
+[5:48 PM] Mehran (Guest)
+rom mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+import pandas as pd
+import pylab
+import seaborn as sns
+import pathlib as pl
+import os
+
+usr_local = pl.Path('C:/Users/mehra/Desktop/NitrogenMNGM')
+print(usr_local)
+
+process = input("what is your process (4stage or MLE):")
+
+dataframe1=usr_local/'mle-med-ww-strength-20c.csv'
+dataframe2=usr_local/'4stage-med-ww-strength-20c.csv'
+if process == "MLE":
+ #dataframe=usr_local/'mle-med-ww-strength-20c.csv'
+ df = pd.read_csv(dataframe1)
+# or you can use in the following format
+# df = pd.read_csv(r'C:\Users\mehra\Desktop\NitrogenMNGM\mle-med-ww-strength-20c.csv')
+ print("You Are Evaluating a " + process + "  process")
+
+else:
+ #dataframe=usr_local/'4stage-med-ww-strength-20c.csv'
+ df = pd.read_csv(dataframe2)
+ print("You Are Evaluating a " + process + "  process")
+
+print(df.head(5))
+
+# And transform the old column name in something numeric
+# df['X'] = pd.Categorical(df['X'])
+# df['X'] = df['X'].cat.codes
+# We are going to do 20 plots, for 20 different angles
+# for angle in range(70, 210, 2):
+# Turn interactive plotting off
+# plt.ioff()
+# Set the angle of the camera
+# ax.view_init(30, angle)
+# Save it
+#  filename = '/Users/yan.holtz/Desktop/Volcano_step' + str(angle) + '.png'
+# plt.savefig(fname=filename, dpi=96)
+# plt.gca()
+#plt.close(fig)
+# Make the plot
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+surf = ax.plot_trisurf(df['Y'], df['X'], df['Z'], cmap=plt.cm.jet, linewidth=0.1)
+fig.colorbar(surf, shrink=0.5, aspect=5)
+
+font1 = {​​​​​'family': 'serif', 'color': 'black', 'size': 14}​​​​​
+font2 = {​​​​​'family': 'serif', 'color': 'black', 'size': 12}​​​​​
+
+ax.set_xlabel('SRT[d]', fontdict=font2)
+ax.set_ylabel('COD/N', fontdict=font2)
+ax.set_zlabel('TIN[mgN/L]', fontdict=font2)
+# ax.set(xlim=(5,15), ylim=(5,15), zlim=(5,11))
+if (process == "MLE"):
+ plt.title("MLE MWW 20C", fontdict=font1)
+else:
+ plt.title("4-Stage MWW 20C", fontdict=font1)
+
+# Set the angle of the camera and rotate
+ax.view_init(30, 70)
+plt.show()
+
+
+
