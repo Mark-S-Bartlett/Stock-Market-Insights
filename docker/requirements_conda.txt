@@ -11,3 +11,9 @@ chktex
 jupyterlab-git
 jupyterlab_latex
 jupyterlab-spellchecker
+pandas-datareader
+numpy
+scipy
+math
+scikit-learn
+keras
