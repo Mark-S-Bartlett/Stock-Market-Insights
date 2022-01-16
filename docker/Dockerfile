@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:04ec7b772984
+FROM jupyter/tensorflow-notebook:latest
 
 LABEL authors="Mark S. Bartlett"
 LABEL maintainer="bartlett <mark.bartlettjr@Stantec.com>"

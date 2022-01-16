@@ -68,6 +68,7 @@ target/
 
 # VS Code
 .vscode/
+.vscode-server
 
 # Spyder
 .spyproject/
@@ -97,3 +98,9 @@ target/
 .local
 .subversion
 .bash_history
+
+#Keras
+.keras/
+
+#Virtual documents
+.virtual_documents/

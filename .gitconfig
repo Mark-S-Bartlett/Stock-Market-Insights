@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	email = Mark.Bartlett@gmail.com
+	name = Mark S. Bartlett
+[credential]
+	helper = "!f() { /home/jovyan/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node /tmp/vscode-remote-containers-60c5ae62ea339a4d0dd4db419ed6dbc07db19a12.js $*; }; f"
